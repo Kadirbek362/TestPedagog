@@ -4,19 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тестирование по законам</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        #language-switcher { position: absolute; top: 10px; right: 10px; display: flex; gap: 10px; align-items: center; }
-        #language-switcher div { cursor: pointer; display: flex; align-items: center; gap: 5px; }
-        #language-switcher div.active { font-weight: bold; }
-        h1 { text-align: center; }
-        h2 { text-align: center; }
-        .test-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .test-item { border: 1px solid #ccc; padding: 20px; width: 300px; text-align: center; }
-        .test-item h3 { margin-top: 0; }
-        .test-item button { background: #007bff; color: white; border: none; padding: 10px; cursor: pointer; }
-        .instruction { background: #f9f9f9; padding: 20px; margin: 20px 0; }
-        footer { text-align: center; margin-top: 40px; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        #language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #language-switcher div {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        #language-switcher div:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        #language-switcher div.active {
+            background: #007bff;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            font-weight: 500;
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .test-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .test-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .test-item h3 {
+            margin-top: 0;
+            color: #333;
+            font-weight: 500;
+        }
+        .test-item p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .test-item button {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        .test-item button:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .instruction {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin: 40px auto;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .instruction h3 {
+            color: #333;
+            font-weight: 500;
+            margin-top: 0;
+        }
+        .instruction ul {
+            list-style: none;
+            padding: 0;
+        }
+        .instruction li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .instruction li:last-child {
+            border-bottom: none;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
