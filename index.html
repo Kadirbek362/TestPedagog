@@ -17,6 +17,9 @@
             cursor: pointer;
             border: 1px solid #ccc;
             background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #language-buttons button.active {
             font-weight: bold;
@@ -27,8 +30,8 @@
 <body>
     <h1 id="greeting">Сәлем Әлем</h1>
     <div id="language-buttons">
-        <button data-lang="kz" class="active">🇰🇿 Қазақша</button>
-        <button data-lang="ru">🇷🇺 Орысша</button>
+        <button data-lang="kz" class="active"><span>Қазақша</span><span>🇰🇿</span></button>
+        <button data-lang="ru"><span>Орысша</span><span>🇷🇺</span></button>
     </div>
     <script>
         const translations = {
