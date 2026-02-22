@@ -1,53 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Тестирование по законам</title>
     <style>
-        #language-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 10px;
-        }
-        #language-buttons button {
-            padding: 5px 10px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #language-buttons button.active {
-            font-weight: bold;
-            background: #f0f0f0;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #language-switcher { position: absolute; top: 10px; right: 10px; display: flex; gap: 10px; align-items: center; }
+        #language-switcher div { cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        #language-switcher div.active { font-weight: bold; }
+        h1 { text-align: center; }
+        h2 { text-align: center; }
+        .test-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .test-item { border: 1px solid #ccc; padding: 20px; width: 300px; text-align: center; }
+        .test-item h3 { margin-top: 0; }
+        .test-item button { background: #007bff; color: white; border: none; padding: 10px; cursor: pointer; }
+        .instruction { background: #f9f9f9; padding: 20px; margin: 20px 0; }
+        footer { text-align: center; margin-top: 40px; }
     </style>
 </head>
 <body>
-    <h1 id="greeting">Сәлем Әлем</h1>
-    <div id="language-buttons">
-        <button data-lang="kz" class="active"><span>Қазақша</span><span>🇰🇿</span></button>
-        <button data-lang="ru"><span>Орысша</span><span>🇷🇺</span></button>
+    <div id="language-switcher">
+        <div data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</div>
+        <div data-lang="kz" class="active"><img src="https://flagcdn.com/w20/kz.png" alt="Қазақша"> Қазақша</div>
     </div>
+    <h1 id="main-title">Тестирование по законам</h1>
+    <h2 id="subtitle">Проверьте свои знания основных законодательных актов</h2>
+    <h2 id="choose-test">Выберите тест для прохождения</h2>
+    <div class="test-list">
+        <div class="test-item">
+            <h3>Трудовой кодекс</h3>
+            <p>Трудовые отношения и права работников</p>
+            <button>Активный 2</button>
+        </div>
+        <div class="test-item">
+            <h3>О браке и семье</h3>
+            <p>Семейные правоотношения</p>
+            <button>Активный 3</button>
+        </div>
+        <div class="test-item">
+            <h3>Об образовании</h3>
+            <p>Система образования и обучение</p>
+            <button>Активный 4</button>
+        </div>
+        <div class="test-item">
+            <h3>О статусе педагога</h3>
+            <p>Права и обязанности педагогов</p>
+            <button>Активный 5</button>
+        </div>
+        <div class="test-item">
+            <h3>О правах ребенка</h3>
+            <p>О правах ребенка</p>
+            <button>Активный 6</button>
+        </div>
+        <div class="test-item">
+            <h3>ГОСО. 348 приказ</h3>
+            <p>ГОСО. 348 приказ</p>
+            <button>Активный 7</button>
+        </div>
+        <div class="test-item">
+            <h3>О мерах по борьбе с коррупцией</h3>
+            <p>О мерах по борьбе с коррупцией</p>
+            <button>Активный</button>
+        </div>
+    </div>
+    <div class="instruction">
+        <h3>Инструкция</h3>
+        <ul>
+            <li>Выберите один из семи тестов для прохождения</li>
+            <li>Каждый тест содержит 10 случайных вопросов без повторений</li>
+            <li>В каждом вопросе нужно выбрать один правильный ответ</li>
+            <li>После ответа вы увидите правильный вариант</li>
+            <li>В конце теста вы получите детальный результат</li>
+        </ul>
+    </div>
+    <footer>
+        © 2026 Тестирование по законодательным актам
+    </footer>
     <script>
         const translations = {
-            kz: "Сәлем Әлем",
-            ru: "Привет Мир"
+            ru: {
+                mainTitle: "Тестирование по законам",
+                subtitle: "Проверьте свои знания основных законодательных актов",
+                chooseTest: "Выберите тест для прохождения",
+                tests: [
+                    { title: "Трудовой кодекс", desc: "Трудовые отношения и права работников" },
+                    { title: "О браке и семье", desc: "Семейные правоотношения" },
+                    { title: "Об образовании", desc: "Система образования и обучение" },
+                    { title: "О статусе педагога", desc: "Права и обязанности педагогов" },
+                    { title: "О правах ребенка", desc: "О правах ребенка" },
+                    { title: "ГОСО. 348 приказ", desc: "ГОСО. 348 приказ" },
+                    { title: "О мерах по борьбе с коррупцией", desc: "О мерах по борьбе с коррупцией" }
+                ],
+                instruction: "Инструкция",
+                instrList: [
+                    "Выберите один из семи тестов для прохождения",
+                    "Каждый тест содержит 10 случайных вопросов без повторений",
+                    "В каждом вопросе нужно выбрать один правильный ответ",
+                    "После ответа вы увидите правильный вариант",
+                    "В конце теста вы получите детальный результат"
+                ],
+                footer: "© 2026 Тестирование по законодательным актам"
+            },
+            kz: {
+                mainTitle: "Заңдар бойынша тестілеу",
+                subtitle: "Негізгі заңнамалық актілердің біліміңізді тексеріңіз",
+                chooseTest: "Өту үшін тест таңдаңыз",
+                tests: [
+                    { title: "Еңбек кодексі", desc: "Еңбек қатынастары және жұмысшылардың құқықтары" },
+                    { title: "Неке және отбасы туралы", desc: "Отбасылық құқықтық қатынастар" },
+                    { title: "Білім беру туралы", desc: "Білім беру жүйесі және оқыту" },
+                    { title: "Педагог мәртебесі туралы", desc: "Педагогтардың құқықтары мен міндеттері" },
+                    { title: "Баланың құқықтары туралы", desc: "Баланың құқықтары туралы" },
+                    { title: "ГОСО. 348 бұйрық", desc: "ГОСО. 348 бұйрық" },
+                    { title: "Сыбайлас жемқорлыққа қарсы іс-қимыл шаралары туралы", desc: "Сыбайлас жемқорлыққа қарсы іс-қимыл шаралары туралы" }
+                ],
+                instruction: "Нұсқаулық",
+                instrList: [
+                    "Өту үшін жеті тесттің бірін таңдаңыз",
+                    "Әр тест 10 кездейсоқ сұрақтан тұрады, қайталанбайды",
+                    "Әр сұрақта бір дұрыс жауапты таңдау керек",
+                    "Жауаптан кейін сіз дұрыс нұсқаны көресіз",
+                    "Тест соңында сіз детальды нәтиже аласыз"
+                ],
+                footer: "© 2026 Заңнамалық актілер бойынша тестілеу"
+            }
         };
-        document.getElementById('language-buttons').addEventListener('click', function(e) {
-            if (e.target.tagName === 'BUTTON') {
-                const selectedLang = e.target.getAttribute('data-lang');
-                document.getElementById('greeting').innerHTML = translations[selectedLang];
-                // Убрать active со всех кнопок
-                document.querySelectorAll('#language-buttons button').forEach(btn => btn.classList.remove('active'));
-                // Добавить active к выбранной
-                e.target.classList.add('active');
+        function updateLanguage(lang) {
+            document.getElementById('main-title').innerHTML = translations[lang].mainTitle;
+            document.getElementById('subtitle').innerHTML = translations[lang].subtitle;
+            document.getElementById('choose-test').innerHTML = translations[lang].chooseTest;
+            const testItems = document.querySelectorAll('.test-item');
+            translations[lang].tests.forEach((test, index) => {
+                if (testItems[index]) {
+                    testItems[index].querySelector('h3').innerHTML = test.title;
+                    testItems[index].querySelector('p').innerHTML = test.desc;
+                }
+            });
+            document.querySelector('.instruction h3').innerHTML = translations[lang].instruction;
+            const instrList = document.querySelectorAll('.instruction ul li');
+            translations[lang].instrList.forEach((item, index) => {
+                if (instrList[index]) instrList[index].innerHTML = item;
+            });
+            document.querySelector('footer').innerHTML = translations[lang].footer;
+        }
+        document.getElementById('language-switcher').addEventListener('click', function(e) {
+            if (e.target.closest('div[data-lang]')) {
+                const lang = e.target.closest('div').getAttribute('data-lang');
+                updateLanguage(lang);
+                document.querySelectorAll('#language-switcher div').forEach(div => div.classList.remove('active'));
+                e.target.closest('div').classList.add('active');
             }
         });
+        updateLanguage('kz');
     </script>
 </body>
 </html>
