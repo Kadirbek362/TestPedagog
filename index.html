@@ -5,27 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #language-selector {
+        #language-buttons {
             position: absolute;
             top: 10px;
             right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        #language-buttons button {
+            padding: 5px 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        #language-buttons button.active {
+            font-weight: bold;
+            background: #f0f0f0;
         }
     </style>
 </head>
 <body>
     <h1 id="greeting">Сәлем Әлем</h1>
-    <select id="language-selector">
-        <option value="kz">Қазақша</option>
-        <option value="ru">Орысша</option>
-    </select>
+    <div id="language-buttons">
+        <button data-lang="kz" class="active">🇰🇿 Қазақша</button>
+        <button data-lang="ru">🇷🇺 Орысша</button>
+    </div>
     <script>
         const translations = {
             kz: "Сәлем Әлем",
             ru: "Привет Мир"
         };
-        document.getElementById('language-selector').addEventListener('change', function() {
-            const selectedLang = this.value;
-            document.getElementById('greeting').innerHTML = translations[selectedLang];
+        document.getElementById('language-buttons').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                const selectedLang = e.target.getAttribute('data-lang');
+                document.getElementById('greeting').innerHTML = translations[selectedLang];
+                // Убрать active со всех кнопок
+                document.querySelectorAll('#language-buttons button').forEach(btn => btn.classList.remove('active'));
+                // Добавить active к выбранной
+                e.target.classList.add('active');
+            }
         });
     </script>
 </body>
